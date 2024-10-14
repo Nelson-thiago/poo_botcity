@@ -1,0 +1,4 @@
+Nome: Notebook
+Preço: R$ 2500.00
+Quantidade: 5
+--------------------

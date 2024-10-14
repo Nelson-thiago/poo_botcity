@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+<body>
+    <h2>Formulário de produto</h2>
+    <form id="form-pessoa">
+        Nome: <input type="text" id="nome" name="nome" required><br><br>
+        Preço: <input type="text" id="preco" name="preco" required><br><br>
+        Quantidade: <input type="number" id="qnt" name="qnt" required><br><br>
+        
+        <input type="submit" value="Enviar">
+    </form>
+
+    <script>
+        // Função para formatar o valor monetário
+        function formatarPreco(valor) {
+            // Remove tudo que não é dígito
+            valor = valor.replace(/\D/g, "");
+            // Formata como valor monetário
+            return (valor / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        // Função para remover a formatação ao enviar
+        function desformatarPreco(valor) {
+            return valor.replace(/[^0-9]/g, "");
+        }
+
+        document.getElementById('preco').addEventListener('input', function() {
+            const valor = this.value;
+            this.value = formatarPreco(valor);
+        });
+
+        document.getElementById('form-pessoa').onsubmit = function(event) {
+            event.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const preco = desformatarPreco(document.getElementById('preco').value);
+            const qnt = document.getElementById('qnt').value;
+
+            // Enviar dados via API ou RPA bot
+            console.log("Dados do Formulário: ", nome, preco, qnt);
+        }
+    </script>
+</body>
+</html>
