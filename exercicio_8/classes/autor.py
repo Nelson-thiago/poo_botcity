@@ -1,4 +1,4 @@
-from livro import Livro 
+
 class Autor:
     def __init__(self, codigo, nome, livros=None):
         self.__codigo = codigo
@@ -26,19 +26,23 @@ class Autor:
         return self.__livros
     
     def adicionar_livro(self, livro):
-        if isinstance(livro, livro):
-            self.livros.append(livro)
-            nome_livro = livro.nome
-
-            print(f"livro {nome_livro} adicionado com sucesso")
+        from livro import Livro 
+        if isinstance(livro, Livro):
+            self.__livros.append(livro)
+            print(f'Livro "{livro.titulo}" adicionado ao autor {self.__nome}.')
         else:
-            ValueError("O objeto não é uma instancia da classe livro")
-        return None
+            raise ValueError("O objeto fornecido não é uma instância da classe Livro.")
+
     
     def Remover_livro(self, codigo):
+        from livro import Livro 
         self.__livros = [livro for livro in self.__livros if livro.__codigo != codigo]
 
     def mostrar_livros(self):
-        for livro in self.__livros:
-            livro.nome()
-        return None
+        from livro import Livro 
+        if self.__livros:
+            print(f'Livros escritos por {self.__nome}:')
+            for livro in self.__livros:
+                print(f'- {livro.titulo}')
+        else:
+            print(f'{self.__nome} ainda não tem livros cadastrados.')

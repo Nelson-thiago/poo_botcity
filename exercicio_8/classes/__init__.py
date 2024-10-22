@@ -1,3 +1,3 @@
-from .veiculo import Veiculo
-from .carro import Carro
-from .motocicleta import Motocicleta
+from .livro import Livro 
+from .autor import Autor
+from .biblioteca import Biblioteca

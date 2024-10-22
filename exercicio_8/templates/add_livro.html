@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<body>
+    <h1>Adicionar Livro à Biblioteca</h1>
+    <div class="container">
+
+        <div class="btn-back">
+            <a href="/menu_principal" class="btn-back">Retornar ao Menu Principal</a>
+        </div>
+
+        <form action="/adicionar_livro" method="POST">
+            <label for="codigo">Código do Livro:</label>
+            <input type="text" id="codigo" name="codigo" required><br><br>
+
+            <label for="titulo">Título do Livro:</label>
+            <input type="text" id="titulo" name="titulo" required><br><br>
+
+            <label for="autor">Autor:</label>
+            <select id="autor" name="autor" required>
+                <!-- Opções geradas dinamicamente -->
+                <option value="1">George Orwell</option>
+                <option value="2">J.R.R. Tolkien</option>
+            </select><br><br>
+
+            <input type="submit" value="Adicionar Livro">
+        </form>
+    </div>
+</body>
+</html>

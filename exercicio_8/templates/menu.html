@@ -3,24 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aluguel de Veículos</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='Menu.css') }}">
+    <title>Menu Principal - Biblioteca</title>
 </head>
+
 <body>
+    <div class="container">
+        <h1>Biblioteca - Menu Principal</h1>
+        <nav>
+            <div class="btn">
+                <a href="/adicionar_livro"><button>Adicionar Livro</button></a>
+            </div>
+            <div class="btn">
+                <a href="/listar_livros"><button>Listar Livros</button></a>
+            </div>
+            <div class="btn">
+                <a href="/listar_autores"><button>Listar Autores</button></a>
+            </div>
+            <div class="btn">
+                <a href="/emprestar"><button>Registrar Empréstimo</button></a>
+            </div>
+            <div class="btn">
+                <a href="/devolucao"><button>Registrar Devolução</button></a>
+            </div>
 
-    <div class="logo">
-        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo Zl Academy">
+        </nav>
     </div>
-
-    <h1>Gerenciamento de Veiculos</h1>
-    
-    <ul>
-        <li>
-            <a href="/adicionar_veiculo"><button>Adicionar Veiculo</button></a>
-        </li>
-        <li>
-            <a href="/listar_veiculos"><button>Listar veículos</button></a>
-        </li>
-    </ul>
 </body>
 </html>

@@ -3,7 +3,7 @@ class Livro:
     def __init__(self,codigo, titulo, autor=None, disponibilidade=True):
         self.__codigo = codigo
         self.__titulo = titulo
-        self.__autor = autor.nome
+        self.__autor = autor
         self.__disponibilidade = disponibilidade
 
     @property
@@ -45,21 +45,21 @@ class Livro:
 
 
     def emprestar(self):
-        if self.disponivel:
-            self.disponivel = False
+        if self.disponibilidade:
+            self.disponibilidade = False
             print(f'O livro "{self.titulo}" foi emprestado.')
         else:
             print(f'O livro "{self.titulo}" já está emprestado.')
 
     def devolver(self):
-        if not self.disponivel:
-            self.disponivel = True
+        if not self.disponibilidade:
+            self.disponibilidade = True
             print(f'O livro "{self.titulo}" foi devolvido.')
         else:
             print(f'O livro "{self.titulo}" já está disponível.')
 
     def mostrar_info(self):
-        status = "disponível" if self.disponivel else "indisponível"
+        status = "disponível" if self.disponibilidade else "indisponível"
         print(f'Título: {self.titulo}, Autor: {self.autor}, Status: {status}')
 
 
