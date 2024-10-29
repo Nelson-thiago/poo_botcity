@@ -3,9 +3,33 @@ sys.stdout.reconfigure(encoding='utf-8')
 
 class Funcionario:
     def __init__(self, nome, cargo, salario):
-        self.nome = nome
-        self.cargo = cargo
-        self.salario = salario
+        self.__nome = nome
+        self.__cargo = cargo
+        self.__salario = salario
+
+    @property
+    def nome(self):
+        return self.__nome
+
+    @nome.setter
+    def nome(self, nome):
+        self.__nome = nome
+    
+    @property
+    def cargo(self):
+        return self.__cargo
+
+    @cargo.setter
+    def cargo(self, cargo):
+        self.__cargo = cargo
+
+    @property
+    def salario(self):
+        return self.__salario
+        
+    @salario.setter
+    def salario(self, salario):
+        self.__salario = salario
 
     def __str__(self):
         return f"{self.nome} - {self.cargo} - Salário: {self.salario}"
@@ -40,8 +64,8 @@ sistema_rh = SistemaRH()
 sistema_rh.adicionar_funcionario(func1)
 sistema_rh.adicionar_funcionario(func2)
 
-# Aumento permitido (Gerente)
+# É Gerente
 sistema_rh.aumentar_salario(func1, 10)
 
-# Aumento negado (não é Gerente)
+# não é Gerente
 sistema_rh.aumentar_salario(func2, 10)

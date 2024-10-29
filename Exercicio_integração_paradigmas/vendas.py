@@ -5,12 +5,36 @@ from functools import reduce
 
 class Venda:
     def __init__(self, nome_produto, quantidade, preco_unitario):
-        self.nome_produto = nome_produto
-        self.quantidade = quantidade
-        self.preco_unitario = preco_unitario
+        self.__nome_produto = nome_produto
+        self.__quantidade = quantidade
+        self.__preco_unitario = preco_unitario
     
     def total_venda(self):
         return self.quantidade * self.preco_unitario
+
+    @property
+    def nome_produto(self):
+        return self.__nome_produto
+
+    @nome_produto.setter
+    def nome(self, nome_produto):
+        self.__nome_produto = nome_produto
+    
+    @property
+    def quantidade(self):
+        return self.__quantidade
+
+    @quantidade.setter
+    def quantidade(self, quantidade):
+        self.__quantidade = quantidade
+
+    @property
+    def preco_unitario(self):
+        return self.__preco_unitario
+        
+    @preco_unitario.setter
+    def preco_unitario(self, preco_unitario):
+        self.__preco_unitario = preco_unitario
 
 class HistoricoVendas:
     def __init__(self):

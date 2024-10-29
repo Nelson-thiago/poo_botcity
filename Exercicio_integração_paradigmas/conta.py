@@ -2,8 +2,35 @@ import sys
 sys.stdout.reconfigure(encoding='utf-8')
 
 class Conta:
-    def __init__(self):
-        self.transacoes = []
+    def __init__(self, tipo, valor):
+        self.__tipo = tipo
+        self.__valor = valor
+        self.__transacoes = []
+
+    @property
+    def tipo(self):
+        return self.__tipo
+
+    @tipo.setter
+    def tipo(self, tipo):
+        self.__tipo= tipo
+    
+    @property
+    def valor(self):
+        return self.__valor
+
+    @valor.setter
+    def valor(self, valor):
+        self.__valor = valor
+
+    @property
+    def transacoes(self):
+        return self.__transacoes
+        
+    @transacoes.setter
+    def transacoes(self, transacoes):
+        self.__transacoes = transacoes
+
 
     def adicionar_transacao(self, tipo, valor):
         self.transacoes.append({"tipo": tipo, "valor": valor})
