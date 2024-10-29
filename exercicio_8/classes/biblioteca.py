@@ -1,4 +1,4 @@
-from livro import Livro
+from classes.livro import Livro
 class Biblioteca:
     total_livros = 0
 
