@@ -1,51 +1,18 @@
+import sys
+import os
 import tkinter as tk
 from tkinter import messagebox
 
-# Aqui, definimos as classes conforme especificado
-class Autor:
-    def __init__(self, codigo, nome, livros=None):
-        self.__codigo = codigo
-        self.__nome = nome
-        self.__livros = livros if livros is not None else []
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from classes.autor import Autor
+from classes.livro import Livro
+from classes.biblioteca import Biblioteca
 
-    @property
-    def nome(self):
-        return self.__nome
-
-    @property
-    def codigo(self):
-        return self.__codigo
-
-    @property
-    def livros(self):
-        return self.__livros
-
-    def adicionar_livro(self, livro):
-        if isinstance(livro, Livro):
-            self.__livros.append(livro)
-        else:
-            raise ValueError("O objeto fornecido não é uma instância da classe Livro.")
-
-
-class Livro:
-    def __init__(self, codigo, titulo, autor=None, disponibilidade=True):
-        self.codigo = codigo
-        self.titulo = titulo
-        self.autor = autor
-        self.disponibilidade = disponibilidade
-
-    def emprestar(self):
-        if self.disponibilidade:
-            self.disponibilidade = False
-        else:
-            print(f'O livro "{self.titulo}" já está emprestado.')
-
-    def devolver(self):
-        if not self.disponibilidade:
-            self.disponibilidade = True
-        else:
-            print(f'O livro "{self.titulo}" já está disponível.')
-
+# Inicializando biblioteca e objetos
+biblioteca = Biblioteca("Biblioteca Central")
+autor1 = Autor("001", "George Orwell")
+livro1 = Livro("1984", "1984", autor1)
+biblioteca.adicionar_livro(livro1)
 
 class Biblioteca:
     def __init__(self, nome):

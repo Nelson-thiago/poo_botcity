@@ -26,20 +26,18 @@ class Autor:
         return self.__livros
     
     def adicionar_livro(self, livro):
-        from livro import Livro 
-        if isinstance(livro, Livro):
+        if livro.__class__.__name__ == "Livro":
             self.__livros.append(livro)
             print(f'Livro "{livro.titulo}" adicionado ao autor {self.__nome}.')
         else:
             raise ValueError("O objeto fornecido não é uma instância da classe Livro.")
-
     
     def Remover_livro(self, codigo):
-        from livro import Livro 
+        from classes.livro import Livro
         self.__livros = [livro for livro in self.__livros if livro.__codigo != codigo]
 
     def mostrar_livros(self):
-        from livro import Livro 
+        from classes.livro import Livro
         if self.__livros:
             print(f'Livros escritos por {self.__nome}:')
             for livro in self.__livros:

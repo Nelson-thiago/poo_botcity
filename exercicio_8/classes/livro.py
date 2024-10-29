@@ -1,4 +1,4 @@
-from autor import Autor
+
 class Livro:
     def __init__(self,codigo, titulo, autor=None, disponibilidade=True):
         self.__codigo = codigo
@@ -63,7 +63,3 @@ class Livro:
         print(f'Título: {self.titulo}, Autor: {self.autor}, Status: {status}')
 
 
-# Exemplo de uso
-
-livro1 = Livro("1984", "George Orwell")
-livro2 = Livro("O Senhor dos Anéis", "J.R.R. Tolkien")
