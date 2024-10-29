@@ -1,5 +1,5 @@
 from curso import Curso
-class escola:
+class Escola:
 
     def __init__(self, nome, cursos=None):
         self.__nome = nome
@@ -20,7 +20,7 @@ class escola:
     def adicionar_curso(self, curso):
         if isinstance(curso, Curso):
             self.__cursos.append(curso)
-            print(f"Curso {curso.nome} adicionado com sucesso!")
+            print(f"Curso {curso.nome} adicionado com sucesso a escola: {self.nome} !")
         else:
             raise ValueError("O objeto não é uma instância da classe Curso")
 

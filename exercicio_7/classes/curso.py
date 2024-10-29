@@ -31,7 +31,7 @@ class Curso:
             self.alunos.append(aluno)
             nome_aluno = aluno.nome
 
-            print(f"Aluno {nome_aluno} adicionado com sucesso")
+            print(f"Aluno {nome_aluno} adicionado com sucesso ao curso: {self.nome}")
         else:
             ValueError("O objeto não é uma instancia da classe aluno")
         return None
@@ -39,22 +39,10 @@ class Curso:
     def mostrar_alunos(self):
         for aluno in self.__alunos:
             aluno.mostrar_info()
+        print("\\\\\\\\\\\\\\\\\\\\\\\\\\")
+        print("")
         return None
     
     def Remover_aluno(self, matricula):
-        self.__alunos = [aluno for aluno in self.__alunos if aluno.__matricula != matricula]
+        self.__alunos = [aluno for aluno in self.__alunos if aluno.matricula != matricula]
 
-
-# Exemplo de uso:
-
-# Criando alguns alunos
-aluno1 = Aluno("João", "2023001")
-aluno2 = Aluno("Maria", "2023002")
-
-# Criando um curso e adicionando alunos
-curso = Curso("Matemática", "MAT101")
-curso.adicionar_aluno(aluno1)
-curso.adicionar_aluno(aluno2)
-
-# Listando alunos do curso
-curso.mostrar_alunos()
