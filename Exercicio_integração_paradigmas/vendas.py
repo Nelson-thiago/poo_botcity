@@ -58,7 +58,6 @@ class HistoricoVendas:
             if venda.total_venda() > valor:
                 yield venda
 
-# Exemplo de uso
 venda1 = Venda("Produto A", 10, 5.0)
 venda2 = Venda("Produto A", 20, 4.0)
 venda3 = Venda("Produto B", 5, 10.0)

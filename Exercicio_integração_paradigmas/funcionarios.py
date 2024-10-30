@@ -56,7 +56,7 @@ class SistemaRH:
             f.salario += f.salario * aumento_percentual / 100
             print(f"Salário de {f.nome} atualizado para: {f.salario}")
 
-# Exemplo de uso
+
 func1 = Funcionario("Alice", "Gerente", 5000)
 func2 = Funcionario("Bob", "Analista", 3000)
 

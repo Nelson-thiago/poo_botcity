@@ -8,46 +8,6 @@ from classes.autor import Autor
 from classes.livro import Livro
 from classes.biblioteca import Biblioteca
 
-# Inicializando biblioteca e objetos
-biblioteca = Biblioteca("Biblioteca Central")
-autor1 = Autor("001", "George Orwell")
-livro1 = Livro("1984", "1984", autor1)
-biblioteca.adicionar_livro(livro1)
-
-class Biblioteca:
-    def __init__(self, nome):
-        self.__nome = nome
-        self.__livros = []
-        self.__emprestimos = {}
-
-    def adicionar_livro(self, livro):
-        if isinstance(livro, Livro):
-            self.__livros.append(livro)
-        else:
-            raise ValueError("O objeto fornecido não é uma instância da classe Livro.")
-
-    def registrar_emprestimo(self, codigo_livro):
-        livro = self._buscar_livro_por_codigo(codigo_livro)
-        if livro and livro.disponibilidade:
-            livro.emprestar()
-            self.__emprestimos[codigo_livro] = "Cliente"
-        else:
-            print(f'O livro com código {codigo_livro} não está disponível para empréstimo.')
-
-    def registrar_devolucao(self, codigo_livro):
-        livro = self._buscar_livro_por_codigo(codigo_livro)
-        if livro and not livro.disponibilidade:
-            livro.devolver()
-            del self.__emprestimos[codigo_livro]
-        else:
-            print(f'O livro com código {codigo_livro} não está emprestado.')
-
-    def _buscar_livro_por_codigo(self, codigo_livro):
-        for livro in self.__livros:
-            if livro.codigo == codigo_livro:
-                return livro
-        return None
-
 
 # Inicializando biblioteca e objetos
 biblioteca = Biblioteca("Biblioteca Central")
@@ -56,12 +16,11 @@ livro1 = Livro("1984", "1984", autor1)
 biblioteca.adicionar_livro(livro1)
 
 
-# Interface Tkinter
 class BibliotecaApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Sistema de Biblioteca")
-        self.root.geometry("500x400")
+        self.root.geometry("500x300")
 
         # Campo para cadastrar novos livros
         self.lbl_titulo = tk.Label(root, text="Título do Livro")
