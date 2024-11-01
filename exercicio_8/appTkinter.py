@@ -9,7 +9,6 @@ from classes.autor import Autor
 from classes.livro import Livro
 from classes.biblioteca import Biblioteca
 
-# Inicializando biblioteca e objetos
 biblioteca = Biblioteca("Biblioteca Central")
 autor1 = Autor("001", "George Orwell")
 livro1 = Livro("1984", "1984", autor1)
@@ -20,8 +19,7 @@ class BibliotecaApp:
         self.root = root
         self.root.title("Sistema de Biblioteca")
         self.root.geometry("500x450")
-
-        # Seção para cadastrar novos livros
+        # criar livro
         self.lbl_titulo = tk.Label(root, text="Título do Livro")
         self.lbl_titulo.pack()
         self.entry_titulo = tk.Entry(root)
@@ -35,11 +33,11 @@ class BibliotecaApp:
         self.btn_adicionar_livro = tk.Button(root, text="Adicionar Livro", command=self.adicionar_livro)
         self.btn_adicionar_livro.pack(pady=5)
 
-        # Separador horizontal
+        # Separador 
         self.separator1 = ttk.Separator(root, orient='horizontal')
         self.separator1.pack(fill='x', pady=10)
 
-        # Seção para ações de empréstimo
+        # empréstimo
         self.lbl_emprestimo = tk.Label(root, text="Código do Livro para Empréstimo")
         self.lbl_emprestimo.pack()
         self.entry_emprestimo = tk.Entry(root)
@@ -53,11 +51,11 @@ class BibliotecaApp:
         self.btn_emprestar = tk.Button(root, text="Emprestar Livro", command=self.emprestar_livro)
         self.btn_emprestar.pack(pady=5)
 
-        # Separador horizontal
+        # Separador 
         self.separator2 = ttk.Separator(root, orient='horizontal')
         self.separator2.pack(fill='x', pady=10)
 
-        # Seção para ações de devolução
+        # devolução
         self.lbl_devolucao = tk.Label(root, text="Código do Livro para Devolução")
         self.lbl_devolucao.pack()
         self.entry_devolucao = tk.Entry(root)
@@ -70,7 +68,7 @@ class BibliotecaApp:
         self.separator3 = ttk.Separator(root, orient='horizontal')
         self.separator3.pack(fill='x', pady=10)
 
-        # Botão para listar livros disponíveis
+        # listar livros disponíveis
         self.btn_listar_livros = tk.Button(root, text="Listar Livros Disponíveis", command=self.listar_livros)
         self.btn_listar_livros.pack(pady=10)
 
@@ -133,7 +131,6 @@ class BibliotecaApp:
         else:
             messagebox.showinfo("Livros Disponíveis", "Nenhum livro disponível.")
 
-# Executando o app
 root = tk.Tk()
 app = BibliotecaApp(root)
 root.mainloop()
